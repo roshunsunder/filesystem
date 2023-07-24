@@ -1,0 +1,6 @@
+langchain
+sentence_transformers
+faiss-cpu
+tiktoken
+openai
+unstructured
