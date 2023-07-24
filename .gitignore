@@ -1,3 +1,5 @@
 home/
 env/
+.env
 .DS_Store
+faiss_index/

@@ -4,3 +4,4 @@ faiss-cpu
 tiktoken
 openai
 unstructured
+python-dotenv
