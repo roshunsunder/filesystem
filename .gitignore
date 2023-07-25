@@ -3,3 +3,5 @@ env/
 .env
 .DS_Store
 faiss_index/
+__pycache__/
+node_modules/
