@@ -168,9 +168,3 @@ class Indexer:
             self.master_db.save_local("faiss_index")
         else:
             print("No vector store deteced")
-
-if __name__ == "__main__":
-    ind = Indexer("./home")
-    ind.index()
-    ind.render_db()
-    ind.save_db()
