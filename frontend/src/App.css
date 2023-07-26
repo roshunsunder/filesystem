@@ -15,16 +15,34 @@ body {
 .title {
   font-size: 36px;
   font-weight: bold;
-  font-family: "Arial", sans-serif;
+  font-family: "SF Pro", sans-serif;
   color: white;
   margin-bottom: 20px;
+}
+.title.floating {
+  font-size: 36px;
+  font-weight: bold;
+  font-family: "SF Pro", sans-serif;
+  color: white;
+  margin-bottom: 20px;
+  transform: translateY(-400%);
+  transition: transform 3s ease;
 }
 
 .input-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
+  transition: width 3s ease; 
 }
+
+.input-container.floating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-500%);
+  transition: transform 3s ease;
+} 
 
 .input-box {
   padding: 8px;
@@ -48,5 +66,119 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
+  width: 60px;
 }
+
+/* .floating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+} */
+
+.list-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #111;
+}
+
+.list-container div {
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: white;
+}
+/* @media (max-width: 768px) {
+  .app-container.floating {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .list-container {
+    padding: 0;
+  }
+
+  .list-container div {
+    margin: 8px auto;
+  }
+} */
+
+.list-item {
+  font-size: 18px;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  margin-bottom: 8px;
+  width: calc(300px + 60px);
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(10%);
+    opacity: 1;
+  }
+}
+
+.app-container.floating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  animation: floatUp 0.5s ease;
+}
+
+.list-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #111;
+  animation: fadeIn 0.5s ease;
+}
+
+.list-item {
+  opacity: 0;
+  animation: fadeInListItem 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInListItem {
+  to {
+    opacity: 1;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .app-container.floating {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .list-container {
+    padding: 0;
+  }
+
+  .list-container div {
+    margin: 8px auto;
+  }
+} */
+/* App.css */
 
