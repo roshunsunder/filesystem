@@ -1,22 +1,19 @@
-import streamlit as st
 from indexer import Indexer
 from query import QueryDriver
+from flask import Flask, request
+from flask_cors import CORS
 
+app = Flask(__name__)
+CORS(app)
 q = QueryDriver()
 q.load_from_disk("faiss_index")
 
-def search(string):
+@app.route('/query', methods=['POST'])
+def query():
     global q
+    string = request.json['query']
     res = q.query(string)
-    for f in res:
-        st.markdown(f"[{f}]({f})", unsafe_allow_html=True)
-
-def main():
-    st.title("Talk to your File System")
-    # Create a search box
-    search_query = st.text_input("Enter a search query:")
-    st.button(label="Go!", on_click=search(search_query))
-
+    return {"result" : res}
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True, port=8686)
